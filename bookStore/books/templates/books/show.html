@@ -1,0 +1,12 @@
+{% extends "layout/main.html" %}
+{% block title %}
+<title>Edit book</title>
+{% endblock%}
+{% block body %}
+    <h2>id:{{book.id}}</h2>
+    <h2>{{book.title}}</h2>
+    <h3>{{book.content}}</h3>
+    <a href="{% url 'delete' book.id%}">delete</a>
+    <hr>
+    <!-- <hr> -->
+    {% endblock%}

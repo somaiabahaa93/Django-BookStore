@@ -1,0 +1,14 @@
+{% extends "layout/main.html" %}
+{% block title %}
+<title>All books</title>
+{% endblock%}
+{% block body %}
+    <h1>All books</h1>
+    {% for book in books%}
+    <h2>id:{{book.id}}</h2>
+    <h2>{{book.title}}</h2>
+    <h4>{{book.content}}</h4>
+    <hr>
+    {%endfor%}
+    <!-- <hr> -->
+{% endblock %}
