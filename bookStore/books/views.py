@@ -4,14 +4,16 @@ from .forms import BookForm
 from .models import Book
 # from flask import Flask, render_template, request, redirect
 from django.shortcuts import redirect
-# Create your views here.
+from django.contrib.auth.decorators import login_required,permission_required
 
+@login_required(login_url="/login")
+@permission_required(["books.view_book"], raise_exception=True)
 def index(request):
     books=Book.objects.all()
     return render(request,"books/index.html",{
         "books":books
     })
-
+@login_required(login_url="/login")
 def create(request):
     form=BookForm(request.POST or None)
     if form.is_valid():

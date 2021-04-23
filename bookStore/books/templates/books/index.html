@@ -4,6 +4,11 @@
 {% endblock%}
 {% block body %}
     <h1>All books</h1>
+
+    {% if request.user.is_authenticated %}
+    <h3>Welcome {{request.user}}</h3>
+    {% endif %}
+
     {% for book in books%}
     <h2>id:{{book.id}}</h2>
     <h2>{{book.title}}</h2>

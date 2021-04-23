@@ -7,6 +7,9 @@ class BookForm (forms.ModelForm):
         fields="__all__" 
         exclude=("isbn",)
 
+
+        
+
     def clean(self):
         super(BookForm,self).clean()
         title=self.cleaned_data.get("title")   
